@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 /**
- * 
+ * Classe Action - Super classe de todas actions que forem criadas na aplicação
  * @author Fernando
  *
  */
@@ -30,9 +30,11 @@ public abstract class Action {
 	}
 	public abstract void process() throws Exception;
 	
+	//redirecionamento interno
 	protected void forward(String path) throws Exception{
 		request.getRequestDispatcher(path).forward(request, response);
-	}
+	}	
+	//redirecionamento externo
 	protected void redirect(String path)throws Exception {
 		String contextRoot = request.getContextPath();
 		response.sendRedirect(contextRoot+"/"+path);
