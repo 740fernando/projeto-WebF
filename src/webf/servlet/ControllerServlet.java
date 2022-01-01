@@ -9,7 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.Action;
+
+import webf.action.Action;
 /**
  * Todas as requisiçoes feitas no meu framework que terminam com ./action
  * são executadas nesse servlets, ele decide onde vai o fluxo de execução,
