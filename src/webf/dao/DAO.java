@@ -11,7 +11,7 @@ import org.hibernate.query.Query;
 
 
 /**
- * Super classe de todas os daos que forem criados na aplicação
+ * Super classe de todas as DAOs criadas na aplicação
  * 
  *@author Fernando
  */

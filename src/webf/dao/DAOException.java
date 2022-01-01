@@ -2,7 +2,8 @@ package webf.dao;
 /**
  * 
  * Classe que herda de Exception - O objetivo é identificar problemas de DAO
- * Encapsula de niveis mais baixo - neste caso, o hibernate- gerenciador de persistencia.
+ * Encapsula de niveis mais baixo - neste caso, o hibernate- gerenciador de persistencia
+ * e lança DAOException, uma excessão genérica
  * 
  * @author Fernando
  *
