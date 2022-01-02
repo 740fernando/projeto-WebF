@@ -8,6 +8,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
+import webf.util.HibernateUtil;
+
 
 
 /**
@@ -66,7 +68,7 @@ public abstract class DAO<T> {
 	@SuppressWarnings("unchecked")
 	protected T result(String hql, Class<T> clazz) throws DAOException{
 		List<?> results = list(hql);
-		if(results.siza()==0) {
+		if(results.size()==0) {
 			return null;
 		}
 		return (T) results.get(0);
