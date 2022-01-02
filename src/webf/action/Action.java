@@ -3,6 +3,9 @@ package webf.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import web.service.ServiceFactory;
+import webf.util.HibernateUtil;
 /**
  * Classe Action - Super classe de todas actions que forem criadas na aplicação
  * @author Fernando
@@ -23,8 +26,8 @@ public abstract class Action {
 			HibernateUtil.beginTransaction();
 			process();
 			HibernateUtil.commitTransaction();
-		}catch (Excetion e) {
-			Hibernateutil.rollbackTransaction();
+		}catch (Exception e) {
+			HibernateUtil.rollbackTransaction();
 			throw e;
 		}
 	}
