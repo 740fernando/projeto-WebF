@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import web.service.ServiceFactory;
+import webf.service.ServiceFactory;
 import webf.util.HibernateUtil;
 /**
  * Classe Action - Super classe de todas actions que forem criadas na aplicação
