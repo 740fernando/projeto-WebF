@@ -28,7 +28,6 @@ public abstract class DAO<T> {
 		this.clazz = clazz;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public T load(Serializable id) throws DAOException{
 		try {
 			return (T) session.load(clazz,id);
@@ -57,13 +56,21 @@ public abstract class DAO<T> {
 			throw new DAOException(e);
 		}
 	}
-	protected List<?> list(String hql) throws DAOException {
+	protected List<T> list(String hql) throws DAOException {
 		try {
-			Query q = query(hql);
-			return q.list();
+			Query<T> q = query(hql);
+			return q.getResultList();
 		}catch ( HibernateException e) {
 			throw new DAOException(e);
 		}		
+	}
+	protected <O> List<O> list(String hql, Class<O> clazz) throws DAOException{
+		try {
+			Query<O> q = query(hql,clazz);
+			return q.getResultList();
+		}catch(HibernateException e) {
+			throw new DAOException(e);
+		}
 	}
 	@SuppressWarnings("unchecked")
 	protected T result(String hql, Class<T> clazz) throws DAOException{
@@ -74,9 +81,16 @@ public abstract class DAO<T> {
 		return (T) results.get(0);
 	}
 	
-	protected Query query(String hql) throws DAOException {
+	protected Query<T> query(String hql) throws DAOException {
 		try {
-			return session.createQuery(hql);
+			return session.createQuery(hql, clazz);
+		}catch(HibernateException e) {
+			throw new DAOException(e);
+		}
+	}
+	protected <O>Query<O> query(String hql,Class<O> clazz) throws DAOException {
+		try {
+			return session.createQuery(hql, clazz);
 		}catch(HibernateException e) {
 			throw new DAOException(e);
 		}
