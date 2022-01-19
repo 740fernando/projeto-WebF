@@ -18,7 +18,7 @@ import webf.action.Action;
  * @author Fernando
  *
  */
-@WebServlet("/.action")
+@WebServlet("*.action")
 public class ControllerServlet extends HttpServlet {
 	
 	private static Properties actions;
